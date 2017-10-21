@@ -30,8 +30,11 @@ get '/new' do
 end
 
 post '/create' do
-	#replace this
-	return params.to_s
+	p = Post.new
+	p.title = params["title"]
+	p.body = params["body"]
+	p.save
+	return "Success!"
 end
 
 get '/' do
